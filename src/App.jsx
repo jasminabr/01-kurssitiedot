@@ -4,15 +4,15 @@ const Header = (props) => {
 };
 
 const Content = (props) => {
-  return (
-    <ul>
-      {props.parts.map((part, index) => (
-        <li key={index}>
-          {part.name} ({part.exercises} exercises)
-        </li>
-      ))}
-    </ul>
-  );
+  let content = [];
+  for (let i = 0; i < props.parts.length; i++) {
+    content.push(
+      <li key={i}>
+        {props.parts[i].name} ({props.parts[i].exercises} exercises)
+      </li>
+    );
+  }
+  return <ul>{content}</ul>;
 };
 
 const Total = (props) => {
